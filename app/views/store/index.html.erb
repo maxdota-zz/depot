@@ -3,7 +3,9 @@
 <% end %>
 
 <h1>Your Pragmatic Catalog</h1>
-
+<% if @counter > 5 %>
+<h3> You have accessed the store controller's index <%= pluralize(@counter, "time") %> </h3>
+<% end %>
 <% @products.each do |product| %>
   <div class="entry">
     <%= image_tag(product.image_url) %>
@@ -11,6 +13,7 @@
     <p><%= sanitize(product.description) %></p>
     <div class="price_line">
       <span class="price"><%= number_to_currency(product.price) %></span>
+      <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
     </div>
   </div>
 <% end %>
