@@ -16,8 +16,13 @@
   </div>
   <div id="columns">
   	<div id="side">
+      <% if @cart %>
+        <%= render @cart %>
+      <% end %>
+
       <ul>
-        <li><a href="http://www....">Home</a></li>
+        <li><%= link_to 'Your cart', carts_path + '/show' %></li>
+        <li><a href="http://localhost:3000">Home</a></li>
         <li><a href="http://www..../faq">Questions</a></li>
         <li><a href="http://www..../news">News</a></li>
         <li><a href="http://www..../contact">Contact</a></li>
